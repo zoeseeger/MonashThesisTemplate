@@ -66,6 +66,3 @@ Rmd --> knitr --> md --> pandoc --> publishable content
 
 For more information on RMarkdown see: <https://rmarkdown.rstudio.com/index.html>
 For more information on bookdown see: <https://bookdown.org/yihui/bookdown/>
-
-## Other Resources
-
