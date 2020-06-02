@@ -1,0 +1,30 @@
+book_filename: "thesis"
+language:
+  ui:
+    chapter_name: "Chapter "
+rmd_files: [
+
+  # Comment out the sections you do not want to build
+  # for a faster build
+
+  # This page is required to build
+  "index.Rmd",
+
+  ### Front Matter ---------
+  "00-copyright.Rmd",      #
+  "00-abstract.Rmd",       #
+  "00-declaration.Rmd",    #
+  "00-acknowledge.Rmd",    #
+  "00-abbreviations.Rmd",  #
+
+  ### Main -----------------
+  "01-chap1.Rmd",          # Your first chapter
+  "02-chap2.Rmd",          # Your second chapter
+  # add in more chapters here
+
+  ### Appendices -----------
+  "A-appA.Rmd",            # Your first appendix
+  # add in more appendices here
+
+  ]
+delete_merged_file: TRUE

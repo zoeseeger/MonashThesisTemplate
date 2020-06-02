@@ -1,0 +1,106 @@
+---
+chapter: 1
+knit: "bookdown::render_book"
+---
+
+<!-- R and knitr defaults for the book -->
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message=FALSE, cache=TRUE)
+# Load any R packages you need here
+library(ggplot2)    # Plotting
+library(magrittr)   # Pipe (%>%)
+library(kableExtra) # Tables
+library(knitLatex)  # Tables
+```
+
+<!-- Chapter title and label in curly braces to be referenced in text -->
+# Introduction {#ch:intro} 
+
+This chapter contains a summary of the context in which your research is set. 
+
+Imagine you are writing for your fellow PhD students. Topics that are well-known to them do not have to be included here. But things that they may not know about should be included.
+
+Resist the temptation to discuss everything you've read in the last few years. And you are not writing a textbook either. This chapter is meant to provide the background necessary to understand the material in subsequent chapters. Stick to that.
+
+You will need to organize the literature review around themes, and within each theme provide a story explaining the development of ideas to date. In each theme, you should get to the point where your ideas will fit in. But leave your ideas to later chapters. This way it is clear what has been done beforehand, and what new contributions you are making to the research field.
+
+<!-- Section in chapter and label-->
+## Rmarkdown {#sec:rmd}
+
+The big advantage of using Rmarkdown is that it allows you to include your R code directly into your thesis, to ensure there are no errors in copying and pasting, and that everything is reproducible. It also helps you stay better organized.
+
+For details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.
+
+<!-- Subsections are not printed in contents. this can be changed in monashthesis.cls: \setcounter{tocdepth}{1}-->
+
+### Syntax
+
+
+Superscript: +/- 2 kJ mol$^{-1}$
+
+Subscript C$_3$mim
+
+Lists:
+
+I.  Make sure you have two spaces after I.
+II.  Point 2
+  
+1)  List
+2)  Point 2
+
+a.  Point 1
+b.  Point 2
+
+* unordered list
+    + sub-item 1 
+    + sub-item 2 
+
+Bold: \textbf{Bolded} or **Bolded**
+
+Italics: \emph{Italicised} or *Italicised*
+
+## Citing references
+
+This is an example of citing is the style of RMarkdown with reference to authors @MH79 and @Metal82 [see @CKOS01] also @OKS97. [@Brown59;@Brown63;@Holt57;@Winters60]
+
+This template also works with `autocite` (latex notation) which will raise the citations to superscript.\autocite{OKS97}
+
+## Including Figures From File
+
+<!-- [H] puts the picture here, similar to h!, t and b are at top and bottom of page -->
+<!-- Scale image to 1 * width of page (1\textwidth) and path to image: {figures/ils.png} -->
+\begin{figure}[H]
+  \includegraphics[width=1\textwidth,center]{figures/ils.png}
+  \caption{The caption for my figure :).}
+  \label{fig:figlabel}
+\end{figure}
+
+## Equations 
+
+Inline equations are surrounded by `$` ($y_t$) and displayed equations look like: 
+\begin{equation}
+  y_t - y_{t-4} = \beta (x_t-x_{t-4}) + \gamma (z_t-z_{t-4}) + \theta_1 \varepsilon_{t-1} + \Theta_1 \varepsilon_{t-4} + \varepsilon_t
+\label{eq:epsilon}
+\end{equation}
+
+and generate equation numbers.
+
+Inline r commands can be called and even used to process data on the spot. In the following equation 2+3 is evaluated during rendering to produce $\Theta_1 = `r 2+3`$. In RStudio `addins` function `Input LaTex Math` simplifies the syntax of inserting equations.
+
+
+<!-- A section is defined inside of includepdf and added to table of contents so a separate heading is not needed -->
+<!-- To choose which pages are displayed        : pages={-} prints all pages of the document -->
+<!-- To include in table of contents            : addtotoc -->
+<!-- Continue pagestyle header and footer       : pagecommand={} -->
+<!-- Change style of pagestyle to only a header : pagecommand={\thispagestyle{pubs_head}} -->
+<!-- Path to file                               : {pdfs/publication.pdf} -->
+\includepdf[pages={-}, 
+  addtotoc={1,section,1,{Including a PDF}, pdf:included},
+  pagecommand={\thispagestyle{pubs_head}}
+  ] {pdfs/publication.pdf}
+
+
+
+<!-- References for this section with be printed after a pagebreak -->
+\pagebreak
+\printbibliography[segment=\therefsegment,title={References}, heading=subbibnumbered]

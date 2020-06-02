@@ -1,0 +1,51 @@
+% This is a LaTeX thesis template for Monash University.
+% to be used with Rmarkdown
+% This template was produced by Rob Hyndman
+% Version: 6 September 2016
+% Editted by Zoe Seeger
+% 1 June 2020
+
+\documentclass{monashthesis}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Add any LaTeX packages and other preamble here if required
+
+% Bibliographies
+\addbibresource{bibs/thesisrefs.bib}
+% more bibliographies can be added here
+% stored in directory bibs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\author{$author$}
+\title{$title$}
+\degrees{$degrees$}
+\def\degreetitle{$degreetype$}
+
+\def\supervisor{$supervisor$}
+\def\secondsupervisor{$secondsupervisor$}
+\def\school{$school$}
+\def\faculty{$faculty$}
+\def\degrees{$degrees$}
+
+% Add subject and keywords below
+\hypersetup{
+     %pdfsubject={The Subject},
+     %pdfkeywords={Some Keywords},
+     pdfauthor={$author$},
+     pdftitle={$title$},
+     pdfproducer={Bookdown with LaTeX}
+}
+
+\begin{document}
+
+\pagenumbering{roman} % frontmatter numbering
+
+\titlepage
+
+{\setstretch{1.2}\textrm\tighttoc\doublespacing}\newpage
+{\setstretch{1.2}\textrm\listoffigures\doublespacing}\newpage
+{\setstretch{1.2}\textrm\listoftables\doublespacing}\newpage
+
+$body$
+
+\end{document}

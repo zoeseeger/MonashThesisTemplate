@@ -1,0 +1,29 @@
+---
+title: 'Thesis Title'
+degreetype: 'Doctor of Philosophy'
+author: 'John J. Johnson'
+supervisor: 'Peter P. Peterson'
+secondsupervisor: 'Jack J. Jackson'
+school: 'School of Chemistry'
+faculty: 'Faculty of Science'
+
+output: 
+  bookdown::pdf_book:
+    latex_engine: lualatex
+site: bookdown::bookdown_site
+link-citations: yes
+knit: "bookdown::render_book(daemon = TRUE)"
+---
+
+<!-- 
+Edit these lines as appropriate.
+The actual thesis content is in several Rmd files.
+
+You'll need to edit the _bookdown.yml file to set the order in which you'd like them to appear. 
+
+If you have specific LaTeX packages to add, put them in monashthesis.tex.
+
+You will need to ensure you have installed the knitr and bookdown packages for R.
+
+You will also need LaTeX installed on your computer.
+-->

@@ -1,0 +1,25 @@
+---
+knit: "bookdown::render_book"
+---
+
+# Abbreviations {-}
+
+<!-- Table two columns -->
+
+\begin{longtable}[l]{ l l }
+
+  BF$_4^-$        & tetrafluoroborate \\
+  C$_1$mim$^+$    & 1,3-dimethylimidazolium \\
+  C$_1$mpyr$^+$   & N,N-dimethylpyrrolidinium \\
+  NTf$_2^-$       & \emph{bis}(trifluoromethylsulfonyl)amide \\
+  N(CN)$_2^-$     & dicyanamide \\
+  mes             & mesylate \\
+  tos             & tosylate \\
+  PF$_6^-$        & hexafluorophosphate \\
+
+\end{longtable}
+
+<!-- 
+The following line is required to re-set page numbering after preliminary material. Do not remove
+-->
+\clearpage\pagenumbering{arabic}\setcounter{page}{0}

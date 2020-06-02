@@ -1,0 +1,109 @@
+---
+chapter: 2
+knit: "bookdown::render_book"
+---
+
+# Results and Analysis {#ch:randd}
+
+## Data
+
+Included in this template is a file called `sales.csv`.  We can load in this data set using the command in the following `R` chunk:
+
+<!-- Setting echo to True means the code will be included in the document -->
+```{r loaddata, echo=TRUE}
+# Loading the data
+sales <- read.csv("data/sales.csv")
+```
+
+Notice only `R` syntax is contained in the chunk and even the comments are different. Any data you use in your thesis can go into the data directory. It is recommended that munging is scripted in R and form part of your thesis files (possibly hidden in the output) to ensure reproducibility.
+
+## Creating Figures and Self Referencing
+
+Figure \ref{fig:plot1} shows time plots of the data we loaded in the last chunk. Notice how figure captions and references work. Chunk names can be used as figure labels with `fig:` prefixed. Never manually type figure numbers, as they can change when you add or delete figures. This way, the figure numbering is always correct.
+
+```{r plot1, message=FALSE, fig.cap="This is a figure caption!"}
+# Generate a plot
+ggplot(sales, aes(x=AdBudget, y=GDP)) +
+  geom_point()
+```
+
+This is a reference to the next chapter, chapter \ref{ch:randd}, and this is a reference to the next section (\ref{sec:tabs}).
+
+## Tables {#sec:tabs}
+
+### knitLatex xTab Table
+
+```{r knitrtable, results="asis"}
+# Format how to show the values and pipe output to xTab
+# Pipe (%>%) uses magrittr package
+format(sales[1:5,], nsmall=1, digits=1) %>%
+# Generate table
+   xTab(
+      caption.bottom="Table with `knitLatex`",
+      # Determines the borders of the table
+      booktabs=TRUE, 
+      # Align left right... etc.
+      coldef='lrrr',
+      label='tab:sales'
+   )
+```
+
+Again, notice the automatically generated table numbers. In this case, we need to generate the label ourselves. 
+
+The `knitLatex` package is useful for generating tables from R output. Other packages can do similar things including the `kable` function in `knitr` which is somewhat simpler but you have less control over the result. If you use `knitLatex` to generate tables, don't forget to include `results="asis"` in the chunk settings. The options of xTab can be found here: <https://cran.r-project.org/web/packages/knitLatex/knitLatex.pdf>.
+
+### Knitr Kable Table
+
+```{r kabletable, results="asis"}
+# Format how to show the values and pipe output to kable
+format(sales[1:5,], nsmall=1, digits=1) %>%
+   # Generate table
+   knitr::kable(
+      #format = "latex", 
+      booktabs = T, 
+      align = c('l', 'r', 'r', 'r')
+   ) %>%
+   kable_styling(
+      latex_options = "striped", 
+      font_size = 12, 
+      full_width = FALSE#,
+      #position = "float_left"
+   )
+```
+
+For more options from `kable_styling` see <https://cran.r-project.org/web/packages/kableExtra/kableExtra.pdf>.
+
+### Markdown Table
+
+For simple tables Markdown syntax is extremely easy. Additionally you can use an online Table generator (<https://www.tablesgenerator.com/markdown_tables>). In the example below colons on the left left-align the columns.
+
+|  My    | Header   |
+| :----- | :------- | 
+| This   | is       | 
+| a      | Markdown | 
+| Table  | Easy!    | 
+
+
+### Manual Table
+
+Kable typically take in data.frames which can be made before creating the table.
+
+```{r kabletable2, results="asis"}
+# Generate table
+kable(
+   x=data.frame(
+      Text1 = c('Yes', 'No'),
+      Text2 = c(1, 2),
+      Text3 = c(20, 40.5)
+   ),
+   booktabs = T, 
+   align = c('l', 'r', 'r')
+) %>%
+kable_styling(
+   latex_options = "striped", 
+   font_size = 12, 
+   full_width = FALSE
+)
+```
+
+\textbf{Have fun!}

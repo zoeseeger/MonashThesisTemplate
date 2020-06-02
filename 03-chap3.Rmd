@@ -1,0 +1,6 @@
+---
+chapter: 3
+knit: "bookdown::render_book"
+---
+
+

@@ -1,0 +1,15 @@
+---
+knit: "bookdown::render_book"
+---
+
+<!-- Title page for appendices -->
+\part{Appendices}
+
+<!-- Begin formatting for appendices - needs to appear before first appendix -->
+\appendix
+
+# Additional stuff
+
+You might put some computer output here, or maybe additional tables.
+
+Note that `\appendix` must appear before your first appendix although this is not required for other appendices.
