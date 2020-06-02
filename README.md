@@ -32,6 +32,12 @@ Lastly, install kable extra features to print nice looking latex or html tables:
 install.packages('kableExtra')
 ```
 
+## Getting Started
+
+01-chap1 and 02-chap2 Rmd files outline various syntax and functions useful in creating a thesis. These files can be renamed but remember to also rename them in `_bookdown.yml`. In `_bookdown.yml` you can add chapters, order thesis chapters and choose what gets generated upon compilation. This file will keep the matadata for creating the book. In `index.Rmd` most of the information displayed on the title page can be editted. In `monashthesis.tex` set or add bibliographies and add any needed latex packages not already in monashthesis.cls which contains the bulk of the formatting including the title page. _output.yaml contains a few more settings for creating the PDF document but should not require changing. Building the book inside RStudio can be done easily by `Build Book` in the `Build` section of the Environment window pane. This will build the PDF in a directory called `_book`.
+
+So after Rstudio and the R packages are installed start with editing the title page data in `index.Rmd` in RStudio and try `Build Book` to compile. Note: The first time you build the document, the required LaTeX packages will be installed with tlmgr (tex live manager) and this will take longer than subsequent builds.
+
 ## Advantages of RMarkdown
 
 * Markdown is a very simple and clear language
@@ -47,10 +53,6 @@ install.packages('kableExtra')
 * Graphs can also be created inplace meaning that any changes can be immediately incorporated rather than resaving the image and reinserting it
 * All formatting options are contained in a file that once in place can be ignored
 * If you are just writing (no compiling) all you need is a simple text editor making the writing process extremely portable
-
-## Getting Started
-
-01-chap1 and 02-chap2 Rmd files outline various syntax and functions useful in creating a thesis. These files can be renamed but remember to also rename them in `_bookdown.yml`. In `_bookdown.yml` you can add chapters, order thesis chapters and choose what gets generated upon compilation. This file will keep the matadata for creating the book. In `index.Rmd` most of the information displayed on the title page can be editted. In `monashthesis.tex` set or add bibliographies and add any needed latex packages not already in monashthesis.cls which contains the bulk of the formatting including the title page. _output.yaml contains a few more settings for creating the PDF document but should not require changing. Building the book inside RStudio can be done easily by `Build Book` in the `Build` section of the Environment window pane. This will build the PDF in a directory called `_book`.
 
 ## RMarkdown and Bookdown
 
