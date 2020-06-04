@@ -40,3 +40,9 @@ I have / have not renumbered sections of submitted or published papers in order 
 \textbf{Student signature:}
 
 \textbf{Date:}
+
+\textbf{Supervisor name:} 
+
+\textbf{Supervisor signature:}
+
+\textbf{Date:}
