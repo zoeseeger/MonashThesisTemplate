@@ -38,6 +38,30 @@ install.packages('kableExtra')
 
 So after Rstudio and the R packages are installed start with editing the title page data in `index.Rmd` in RStudio and try `Build Book` to compile. Note: The first time you build the document, the required LaTeX packages will be installed with tlmgr (tex live manager) and this will take longer than subsequent builds.
 
+## Potential Issues When Building For The First Time
+
+*Error: trying to use CRAN without setting a mirror*
+
+In cases that I have come across this error, removing R, RStudio and reintallation has fixed the issue.
+
+*Incompatibility of Biblatex and Biber versions*
+
+The solution will depend on the current versions that are compatible but the first port of call is to update the biber version to the latest version and try again. 
+
+```r
+# from R tex live package use function tlmgr_remove to remove package biber
+tinytex::tlmgr_remove('biber')
+
+# from R tex live package use function tlmgr_install to install package biber
+tinytex::tlmgr_install('biber')
+
+# print biber package info
+tinytex::tlmgr('list biber')
+
+# print biblatex package info
+tinytex::tlmgr('list biblatex')
+```
+
 ## Advantages of RMarkdown
 
 * Markdown is a very simple and clear language
